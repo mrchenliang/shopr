@@ -1,0 +1,24 @@
+import firebase from "firebase/app";
+import "firebase/firestore";
+import "firebase/auth";
+
+const config = {
+  apiKey: "AIzaSyCfh3bT_7zcgO_lYY8rT0ABylSKhuBgvyY",
+  authDomain: "shopr-db.firebaseapp.com",
+  databaseURL: "https://shopr-db.firebaseio.com",
+  projectId: "shopr-db",
+  storageBucket: "",
+  messagingSenderId: "586852305153",
+  appId: "1:586852305153:web:d16572f2a60cb860b27300"
+};
+
+firebase.initializeApp(config);
+
+export const auth = firebase.auth();
+export const firestore = firebase.firestore();
+
+const provider = new firebase.auth.GoogleAuthProvider();
+provider.setCustomParameters({ prompt: "select_account" });
+export const signInWithGoogle = () => auth.signInWithPopup(provider);
+
+export default firebase;
