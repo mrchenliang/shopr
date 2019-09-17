@@ -3,14 +3,9 @@ import React from "react";
 import FormInput from "../form-input/form-input.component";
 import CustomButton from "../button/button.component";
 
-import {
-  userAuth,
-  createUserProfileDocument
-} from "../../firebase/firebase.utils";
+import { auth, createUserProfileDocument } from "../../firebase/firebase.utils";
 
 import "./sign-up.styles.scss";
-import { SIGABRT } from "constants";
-import { auth } from "firebase";
 
 class SignUp extends React.Component {
   constructor() {
@@ -59,6 +54,7 @@ class SignUp extends React.Component {
   };
 
   render() {
+    const { displayName, email, password, confirmPassword } = this.state;
     return (
       <div className="sign-up">
         <h2 className="title">I do not have an account</h2>
